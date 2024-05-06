@@ -40,6 +40,13 @@ public class JobTest {
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
         Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String newLine = System.lineSeparator();
+        String newToString = newLine + "ID: " + job.getId() + newLine  +
+                "Name: Product tester" + newLine  +
+                "Employer: ACME" + newLine  +
+                "Location: Desert" + newLine  +
+                "Position Type: Quality control" + newLine  +
+                "Core Competency: Persistence" + newLine ;
         assertEquals("\n", String.valueOf(job.toString().charAt(0)));
         assertEquals("\n", String.valueOf(job.toString().charAt(job.toString().length()-1)));
     }
@@ -48,7 +55,7 @@ public class JobTest {
     public void testToStringContainsCorrectLabelsAndData() {
         Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String newLine = System.lineSeparator();
-        String newToString = "\nID: " + 4 + "\n"  +
+        String newToString = "\nID: " + job.getId() + "\n"  +
                 "Name: Product tester" + "\n"  +
                 "Employer: ACME" + "\n"  +
                 "Location: Desert" + "\n"  +
@@ -61,7 +68,7 @@ public class JobTest {
     public void testToStringHandlesEmptyField() {
         Job job = new Job("Web Developer", new Employer(""), new Location("StL"), new PositionType(""), new CoreCompetency("Java"));
         String newLine = System.lineSeparator();
-        String newToString = "\nID: " + 3 + "\n"  +
+        String newToString = "\nID: " + job.getId() + "\n"  +
                 "Name: Web Developer" + "\n"  +
                 "Employer: Data not available" + "\n"  +
                 "Location: StL" + "\n"  +
@@ -69,11 +76,4 @@ public class JobTest {
                 "Core Competency: Java" + "\n" ;
         assertEquals(newToString, job.toString());
     }
-
-//    ID: 9
-//    Name: Web Developer
-//    Employer: Data not available
-//    Location: StL
-//    Position Type: Data not available
-//    Core Competency: Java
 }

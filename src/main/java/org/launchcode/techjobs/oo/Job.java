@@ -99,7 +99,7 @@ public class Job {
     @Override
     public String toString() {
         String newLine = System.lineSeparator();
-        return "\nID: " + this.getId() + "\n" +
+        return "\n" + "ID: " + this.getId() + "\n" +
                 "Name: " + (this.getName().isEmpty() ? "Data not available" : this.getName()) + "\n"  +
                 "Employer: " + (this.getEmployer().getValue().isEmpty() ? "Data not available" : this.getEmployer().getValue()) + "\n"  +
                 "Location: " + (this.getLocation().getValue().isEmpty() ? "Data not available" : this.getLocation().getValue()) + "\n"  +
